@@ -105,9 +105,9 @@ export default function Register(){
       event.preventDefault();
       if(!isValid) return;
 
-      axios.post(url, formData)
+      axios.post("https://regres.in/api/users", formData)
       .then((response)=>{
-        //history.push("/")
+        setFormData(initialValues);
       })
       .catch((error)=>{
         console.warn(error);
@@ -183,7 +183,7 @@ export default function Register(){
                    />
                    {errors.password && <FormFeedback>{errorMessages.password}</FormFeedback>}
                  </FormGroup>
-                 <Button disabled={!isValid} type="submit">
+                 <Button disabled={!isValid}>
                    Kayıt Ol
                  </Button>
                  </Form>
