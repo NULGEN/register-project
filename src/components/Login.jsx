@@ -6,10 +6,14 @@ import {
   Input,
   Button,
   FormFeedback,
+  Card,
+  CardHeader,
+  CardBody
 } from 'reactstrap';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
+import { useHistory} from 'react-router-dom';
 
 const initialForm = {
   email: '',
@@ -96,13 +100,17 @@ export default function Login() {
         if (user) {
           setForm(initialForm);
           history.push('/main');
-        } else {
-          history.push('/error');
-        }
+        } 
       });
   };
 
   return (
+    <Card> 
+       <CardHeader>
+                Login Project
+            </CardHeader>
+
+      <CardBody> 
     <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Label for="exampleEmail">Email</Label>
@@ -153,5 +161,7 @@ export default function Login() {
         </Button>
       </FormGroup>
     </Form>
+    </CardBody>
+    </Card>
   );
 }
