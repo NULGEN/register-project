@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardBody
 } from 'reactstrap';
-//import { useHistory } from 'react-router-dom';
+
 
 import axios from 'axios';
 import { useHistory} from 'react-router-dom';
@@ -44,7 +44,9 @@ export default function Login() {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
-
+ /* let regex = 
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!^%*?&]{8,15}$/; 
+*/
   useEffect(() => {
     if (
       validateEmail(form.email) &&
@@ -70,11 +72,11 @@ export default function Login() {
       }
     }
 
-    if (name === 'password') {
-      if (value.trim().length >= 4) {
-        setErrors({ ...errors, [name]: false });
-      } else {
-        setErrors({ ...errors, [name]: true });
+    if(name ==="password"){
+      if (form.password.trim().length >= 4) { 
+        setErrors({...errors, [name]: false});
+      }else{
+        setErrors({...errors, [name]: true});
       }
     }
 
